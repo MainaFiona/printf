@@ -16,5 +16,5 @@
 
 
 > Project collaborators are: 
-- [Fiona Maina] (https://github.com/MainaFiona)
-- [ArnoldMN] (https://github.com/Arnoldmn)
+- [Fiona Maina](https://github.com/MainaFiona)
+- [ArnoldMN](https://github.com/Arnoldmn)
