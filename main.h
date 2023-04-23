@@ -18,6 +18,7 @@ typedef struct op
 
 int _putchar(char c);
 int (*get_op_func(const char *s))(va_list);
+int _printf(const char *format, ...);
 int print_a_char(va_list ap);
 int print_a_str(va_list ap);
 int print_a_pct(va_list ap);
