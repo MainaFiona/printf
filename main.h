@@ -7,13 +7,13 @@
 /**
  * struct op - Struct op
  *
- * @op: The operator
+ * @c: format specifier
  * @f: The function associated
  */
 typedef struct op
 {
-    char *c;
-    int (*f)(va_list);
+	char *c;
+	int (*f)(va_list);
 } op_t;
 
 int _putchar(char c);

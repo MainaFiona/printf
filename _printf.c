@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 	va_list valist;
 	int i = 0;
 	int j = 0;
-	int(*f)(va_list);
+	int (*f)(va_list);
 
 	va_start(valist, format);
 
