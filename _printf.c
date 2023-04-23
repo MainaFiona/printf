@@ -1,7 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib>
-#include <stdarg>
 
 /**
  * *get_op_func - function that selects the correct function to perform
@@ -40,6 +38,7 @@ int _printf(const char *format, ...)
 	va_list valist;
 	int i = 0;
 	int j = 0;
+	int(*f)(va_list);
 
 	va_start(valist, format);
 
@@ -47,7 +46,7 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	while (format[i] != NULL)
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -61,7 +60,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					f = get_op_function(&format[i + 1]);
+					f = get_op_func(&format[i + 1]);
 					j = j + f(valist);
 					i++;
 				}

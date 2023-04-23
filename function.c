@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdarg>
 #include <stdio.h>
 
 /**
@@ -13,7 +12,7 @@ int print_a_char(va_list ap)
 	int c;
 
 	c = va_arg(ap, int);
-	_putchar(c)
+	_putchar(c);
 	return (1);
 }
 /**
@@ -30,7 +29,7 @@ int print_a_str(va_list ap)
 	{
 		str = "(nil)";
 	}
-	for (i = 0, str[i]; i++)
+	for (i = 0; str[i]; i++)
 	{
 
 		_putchar(str[i]);
