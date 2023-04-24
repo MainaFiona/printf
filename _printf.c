@@ -28,8 +28,8 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's')
 				{
-					j += _putchar(format[i + 1]);
 					j += _putchar(format[i]);
+					j += _putchar(format[i + 1]);
 					i++;
 				}
 				else
