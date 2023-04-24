@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(valist, format);
 
-	if (format == NULL || !format[i + 1])
+	if (!format[i + 1] || format == NULL)
 	{
 		return (-1);
 	}
@@ -28,14 +28,14 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's')
 				{
-					j += _putchar(format[i]);
-					j += _putchar(format[i + 1]);
+					j = j + _putchar(format[i]);
+					j = j + _putchar(format[i + 1]);
 					i++;
 				}
 				else
 				{
 					f = get_op_func(&format[i + 1]);
-					j += f(valist);
+					j = j + f(valist);
 					i++;
 				}
 			}
