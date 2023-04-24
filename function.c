@@ -16,6 +16,17 @@ int print_a_char(va_list ap)
 	return (1);
 }
 /**
+ * print_a_pct - function that prints percentage
+ * @ap: list of variadic
+ * Return: Always 0.
+ */
+int print_a_pct(va_list ap)
+{
+	(void)ap;
+	_putchar('%');
+	return (1);
+}
+/**
  * print_a_str - function that prints string
  * @ap: list of variadic
  * Return: Always 0.
@@ -35,15 +46,4 @@ int print_a_str(va_list ap)
 		_putchar(str[i]);
 	}
 	return (i);
-}
-/**
- * print_a_pct - function that prints percentage
- * @ap: list of variadic
- * Return: Always 0.
- */
-int print_a_pct(va_list ap)
-{
-	(void)ap;
-	_putchar('%');
-	return (1);
 }
