@@ -11,7 +11,8 @@ int print_an_int(va_list ap)
 {
 	int len = 1;
 	int count = 0;
-	int i, j;
+	int i;
+	unsigned int j;
 
 	i = va_arg(ap, int);
 
