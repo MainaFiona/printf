@@ -23,8 +23,7 @@ int print_a_char(va_list ap)
 int print_a_pct(va_list ap)
 {
 	(void)ap;
-	_putchar('%');
-	return (1);
+	return (write(1, "%", 1));
 }
 /**
  * print_a_str - function that prints string
