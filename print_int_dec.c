@@ -9,36 +9,29 @@
  */
 int print_an_int(va_list ap)
 {
-	int num;
-	int len = 0;
-	int i = 1;
+	int len = 1;
+	int count = 0;
+	int i, j;
 
-	num = va_arg(ap, int);
+	i = va_arg(ap, int);
 
-	if (num < 0)
+	if (i < 0)
 	{
-		_putchar('-');
-		num *= -1;
-		len++;
+		count += _putchar('-');
+		j = i * -1;
 	}
-	if (num == 0)
+	else
 	{
-		_putchar('0');
-		return (1);
+		j = i;
 	}
-	i = 10;
+	while (j / len > 9)
+	len *= 10;
 
-	while (i <= num)
+	while (len != 0)
 	{
-		i *= 10;
+		count += _putchar(j / len + '0');
+		j %= len;
+		len /= 10;
 	}
-	i = 10;
-
-	while (i > 0)
-	{
-		_putchar(((num / i) % 10) + '0');
-		i /= 10;
-		len++;
-	}
-	return (len);
+	return (count);
 }
