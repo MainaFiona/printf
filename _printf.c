@@ -17,16 +17,15 @@ int _printf(const char *format, ...)
 	va_start(valist, format);
 
 	if (!format[i + 1] || format == NULL)
-	{
 		return (-1);
-	}
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			if (format[i + 1])
 			{
-				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's' && format[i + 1] != 'd' && format[i + 1} != 'i')
+				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's'
+&& format[i + 1] != 'i')
 				{
 					j = j + _putchar(format[i]);
 					j = j + _putchar(format[i + 1]);

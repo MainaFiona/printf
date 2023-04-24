@@ -13,7 +13,6 @@ int (*get_op_func(const char *s))(va_list)
 		{"c", print_a_char},
 		{"s", print_a_str},
 		{"%", print_a_pct},
-		{"d", print_a_dec},
 		{"i", print_an_int},
 		{NULL, NULL}
 	};
