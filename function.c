@@ -34,7 +34,9 @@ int print_a_pct(va_list ap)
 int print_a_str(va_list ap)
 {
 	int i;
-	char *str = va_arg(ap, char *);
+	char *str; 
+		
+	str = va_arg(ap, char *);
 
 	if (str == NULL)
 	{
