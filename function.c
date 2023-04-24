@@ -44,5 +44,6 @@ int print_a_str(va_list ap)
 int print_a_pct(va_list ap)
 {
 	(void)ap;
-	return (write(1, "%", 1));
+	_putchar("%");
+	return (1);
 }

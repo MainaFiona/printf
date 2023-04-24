@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(valist, format);
 
-	if (!format[i + 1] || format == NULL)
+	if (format == NULL || !format[i + 1])
 	{
 		return (-1);
 	}
