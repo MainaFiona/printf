@@ -28,14 +28,14 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's')
 				{
-					j = j + _putchar(format[i + 1]);
-					j = j + _putchar(format[i]);
+					j += _putchar(format[i + 1]);
+					j +=_putchar(format[i]);
 					i++;
 				}
 				else
 				{
 					f = get_op_func(&format[i + 1]);
-					j = j + f(valist);
+					j += f(valist);
 					i++;
 				}
 			}
