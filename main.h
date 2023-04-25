@@ -25,8 +25,7 @@ int print_a_pct(va_list ap);
 int print_an_int(va_list ap);
 int print_a_dec(va_list ap);
 int print_a_binary(va_list ap);
-int print_an_unsigned_int(va_list ap);
-int print_an_octa(va_list ap);
+
 
 
 #endif /* MAIN_H */
