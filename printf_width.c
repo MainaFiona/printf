@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <string.h>
 
 /**
  * _printf_width - function that prints it
@@ -54,7 +55,7 @@ int _printf_width(const char *format, ...)
 			char *val = va_args(args, char *);
 
 			printf("%*s", width, val);
-			count += width > 0 ? width : strlen(val);
+			count += width > 0 ? width : (int) strlen(val);
 		}
 		else if (*format == 'd')
 		{

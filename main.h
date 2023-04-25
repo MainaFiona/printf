@@ -30,7 +30,7 @@ int print_an_octa(va_list ap);
 int _print_handlers(const char *format, ...);
 int _printf_flag(const char *format, ...);
 int _printf_0_flag(const char *format, ...);
-int _printf_precision(const char *format, ...);
+int _printf_precision(const char *fmt, ...);
 int _printf_rev(const char *format, ...);
 int _print_width(const char *format, ...);
 int _printf_rot13(const char *format, ...);

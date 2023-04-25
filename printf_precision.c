@@ -6,7 +6,7 @@
  * @fmt: the formatted pointer character
  * Return: the precision specified
  */
-int _printf_precision(const char fmt, ...)
+int _printf_precision(const char *fmt, ...)
 {
 	va_list args;
 
@@ -36,13 +36,13 @@ int _printf_precision(const char fmt, ...)
 			}
 			else if (c == 'p')
 			{
-				voidi *p = va_args(args, void*);
+				void *p = va_arg(args, void*);
 
 				printf("%.*p", precision, p);
 			}
 			else if (c == 'n')
 			{
-				int *n = va_args(args, int*);
+				int *n = va_arg(args, int*);
 
 				printf("%.n", precision, n);
 			}

@@ -5,15 +5,15 @@
  * _printf_flag - function that handles specifier
  * @format: formatted string to print arguments
  *
- * Return: 0
+ * Return: count
  */
-int _print_flag(const char *format, ...)
+int _printf_flag(const char *format, ...)
 {
+	char c;
+
 	va_list args;
 
 	va_start(args, format);
-
-	char c;
 
 	while ((c = *format++))
 	{
@@ -45,7 +45,7 @@ int _print_flag(const char *format, ...)
 			}
 			else if (c == 'p')
 			{
-				void *p = v_arg(args, void*);
+				void *p = va_arg(args, void*);
 
 				if (lft_justify)
 					printf("%.*p", precision, NULL);
@@ -66,4 +66,5 @@ int _print_flag(const char *format, ...)
 			_putchar(c);
 	}
 	va_end(args);
+	return (count);
 }
