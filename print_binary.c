@@ -25,7 +25,7 @@ int print_an_unsigned_int(va_list ap)
 	{
 		j = i;
 	}
-	while (j / len > 9)
+	while (j / len > 2)
 	len *= 2;
 
 	while (len != 0)
