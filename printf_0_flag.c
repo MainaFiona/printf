@@ -37,16 +37,16 @@ int _printf_flag(const char *format, ...)
 			}
 			else
 			{
-				putchar('%');
+				_putchar('%');
 				if (*format != '%')
 				{
-					putchar(*format);
+					_putchar(*format);
 				}
 			}
 		}
 		else
 		{
-			putchar(*format);
+			_putchar(*format);
 		}
 		format++;
 	}
