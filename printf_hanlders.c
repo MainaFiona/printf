@@ -2,12 +2,12 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * _printf - function that handles conversion specifiers
+ * _printf_handlers - function that handles conversion specifiers
  * @format: string to print formatted args
  *
  * Return: count
  */
-int _printf(const char *format, ...)
+int _printf_handlers(const char *format, ...)
 {
 	va_list args;
 

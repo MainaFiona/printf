@@ -2,13 +2,13 @@
 #include <stdarg.h>
 
 /**
- * _printf_flag - function that handles 0 flag
+ * _printf_0_flag - function that handles 0 flag
  * @format: character for specified strings
  *
  * Return: format flag
  */
 
-int _printf_flag(const char *format, ...)
+int _printf_0_flag(const char *format, ...)
 {
 	va_list args;
 

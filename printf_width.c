@@ -2,12 +2,12 @@
 #include <stdarg.h>
 
 /**
- * _printf - function that prints it
+ * _printf_width - function that prints it
  * @format: pointer to string specifier
  * Return: Always success
  */
 
-int _printf(const char format, ...)
+int _printf_width(const char format, ...)
 {
 	int printed = 0;
 	va_list args;

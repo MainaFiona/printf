@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * _printf - print specified pricision of chars
+ * _printf_precision - print specified pricision of chars
  * @fmt: the formatted pointer character
  * Return: the precision specified
  */
-int _printf(const char fmt, ...)
+int _printf_precision(const char fmt, ...)
 {
 	va_list args;
 

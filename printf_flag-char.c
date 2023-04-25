@@ -2,12 +2,12 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * _printf - function that handles specifier
+ * _printf_flag - function that handles specifier
  * @format: formatted string to print arguments
  *
  * Return: 0
  */
-int _printf(const char *format, ...)
+int _print_flag(const char *format, ...)
 {
 	va_list args;
 
