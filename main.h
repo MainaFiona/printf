@@ -27,6 +27,12 @@ int print_a_dec(va_list ap);
 int print_a_binary(va_list ap);
 int print_an_unsigned_int(va_list ap);
 int print_an_octa(va_list ap);
-
+int _print_handlers(const char *format, ...);
+int _printf_flag(const char *format, ...);
+int _printf_0_flag(const char *format, ...);
+int _printf_precision(const char *format, ...);
+int _printf_rev(const char *format, ...);
+int _print_width(const char *format, ...);
+int _printf_rot13(const char *format, ...);
 
 #endif /* MAIN_H */
