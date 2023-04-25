@@ -7,7 +7,7 @@
  * @ap: list of variadic
  * Return: Always 0.
  */
-int print_an_unsigned_int(va_list ap)
+int print_a_binary(va_list ap)
 {
 	int len = 1;
 	int count = 0;
