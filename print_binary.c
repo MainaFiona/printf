@@ -25,7 +25,7 @@ int print_a_binary(va_list ap)
 	{
 		j = i;
 	}
-	while (j / len > 2)
+	while (j / len > 0)
 	len *= 2;
 
 	while (len != 0)
