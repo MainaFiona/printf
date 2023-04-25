@@ -16,6 +16,8 @@ int (*get_op_func(const char *s))(va_list)
 		{"i", print_an_int},
 		{"d", print_an_int},
 		{"b", print_a_binary},
+		{"u", print_an_unsigned_int},
+		{"o", print_an_octa},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
