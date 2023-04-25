@@ -10,7 +10,7 @@
 
 int _printf_width(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, width = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -25,8 +25,6 @@ int _printf_width(const char *format, ...)
 			continue;
 		}
 		format++;
-		int width = 0;
-
 		while (*format >= '0' && *format <= '9')
 		{
 			width = width * 10 + (*format - '0');
@@ -52,7 +50,7 @@ int _printf_width(const char *format, ...)
 		}
 		else if (*format == 's')
 		{
-			char *val = va_args(args, char *);
+			char *val = va_arg(args, char *);
 
 			printf("%*s", width, val);
 			count += width > 0 ? width : (int) strlen(val);

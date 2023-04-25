@@ -10,12 +10,11 @@
 
 int _print_rev(const char *format, ...)
 {
-	count = 0;
-
 	va_list args;
 
+	count = 0;
 
-	int i, int len = strlen(s);
+	int i, len = strlen(s);
 
 	va_start(args, format);
 
@@ -49,10 +48,8 @@ int _print_rev(const char *format, ...)
 			else if (*format == 'r')
 			{
 				char *s = va_arg(args, char*);
-
-				int len = strlen(s);
-
-				for (int i = len - 1; i >= 0; i--)
+				
+				for (i = len - 1; i >= 0; i--)
 				{
 					char *s = va_arg(args, char*);
 
