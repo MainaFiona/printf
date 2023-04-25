@@ -7,9 +7,9 @@
  * Return: Always success
  */
 
-int _printf_width(const char format, ...)
+int _printf_width(const char *format, ...)
 {
-	int printed = 0;
+	int count = 0;
 	va_list args;
 
 	va_start(args, format);
