@@ -8,11 +8,11 @@
  */
 int _printf_precision(const char *fmt, ...)
 {
+	char c;
+
 	va_list args;
 
 	va_start(args, fmt);
-
-	char c;
 
 	while ((c = *(fmt++)))
 	{
@@ -58,6 +58,9 @@ int _printf_precision(const char *fmt, ...)
 		else
 		{
 			_putchar(c);
+			c++;
 		}
 	}
+	va_end(args);
+	return (c);
 }

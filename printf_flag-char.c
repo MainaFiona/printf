@@ -50,7 +50,7 @@ int _printf_flag(const char *format, ...)
 				if (lft_justify)
 					printf("%.*p", precision, NULL);
 				else
-					prntf("%-*.*p", precision, precision, p);
+					printf("%-*.*p", precision, precision, p);
 			}
 			else
 			{
@@ -66,5 +66,5 @@ int _printf_flag(const char *format, ...)
 			_putchar(c);
 	}
 	va_end(args);
-	return (count);
+	return (c);
 }

@@ -51,4 +51,5 @@ int _printf_0_flag(const char *format, ...)
 		format++;
 	}
 	va_end(args);
+	return (0);
 }

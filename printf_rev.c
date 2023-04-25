@@ -10,11 +10,14 @@
 
 int _print_rev(const char *format, ...)
 {
+	count = 0;
+
 	va_list args;
 
-	va_start(args, format);
 
-	int count = 0;
+	int i, int len = strlen(s);
+
+	va_start(args, format);
 
 	while (*format)
 	{
@@ -32,9 +35,7 @@ int _print_rev(const char *format, ...)
 			{
 				char *s = va_arg(args, char*);
 
-				int len = strlen(s);
-
-				for (int i = len - 1; i >= 0; i--)
+				for (i = len - 1; i >= 0; i--)
 				{
 					_putchar(s[i]);
 					count++;

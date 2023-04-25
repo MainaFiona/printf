@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <ctype.h>
 /**
  * rot13_char - function that takes a string as input and returns rot13
  * @c: character to itarate
@@ -10,6 +11,7 @@ char rot13_char(char c)
 	if (isAlpha)
 	{
 		char base = isUpper(c) ? 'A' : 'a';
+
 		return ((c - base + 13) % 26 + base);
 	}
 	else
@@ -44,7 +46,7 @@ int _printf_rot13(const char *format, ...)
 
 	while (*format)
 	{
-		if (*format == '%' && (format + 1) == 'R')
+		if (*format == '%' && *(format + 1) == 'R')
 		{
 			char *str = va_arg(args, char *);
 
@@ -59,4 +61,5 @@ int _printf_rot13(const char *format, ...)
 		}
 	}
 	va_end(args);
+	return ('\n');
 }
