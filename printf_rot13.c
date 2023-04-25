@@ -8,9 +8,9 @@
  */
 char rot13_char(char c)
 {
-	if (isAlpha)
+	if (isalpha)
 	{
-		char base = isUpper(c) ? 'A' : 'a';
+		char base = isupper(c) ? 'A' : 'a';
 
 		return ((c - base + 13) % 26 + base);
 	}
@@ -61,5 +61,5 @@ int _printf_rot13(const char *format, ...)
 		}
 	}
 	va_end(args);
-	return ('\n');
+	return (0);
 }

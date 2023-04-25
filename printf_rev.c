@@ -12,9 +12,9 @@ int _print_rev(const char *format, ...)
 {
 	va_list args;
 
-	count = 0;
+	int count = 0;
 
-	int i, len = strlen(s);
+	int i, len = strlen(str);
 
 	va_start(args, format);
 
