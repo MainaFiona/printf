@@ -1,8 +1,41 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
+
 /**
- * _print_rev - a function that prints reverse string
+ * print_string - sets the string to be printed
+ * @args: arguments
+ * Return: 0
+ */
+void print_string(va_list args)
+{
+	char *str = va_arg(args, char*);
+
+	fputs(str, stdout);
+}
+/**
+ * rev_string - function to reverse a string
+ * @str: string to be reversed
+ * @args:  arguments to be specified
+ * Return: str
+ */
+void rev_string(va_list args)
+{
+	char *str = va_arg(args, char*);
+
+	int len = strlen(str);
+
+	int i;
+
+	for (i = len - 1; i >= 0; i++)
+	{
+		fputc(str[i], stdout);
+	}
+}
+
+/**
+ * _print_rev - handles printof a function that
+ * prints reverse string
  * @format: formated string to look for
  *
  * Return: count
@@ -12,10 +45,6 @@ int _print_rev(const char *format, ...)
 {
 	va_list args;
 
-	int count = 0;
-
-	int i, len = strlen(str);
-
 	va_start(args, format);
 
 	while (*format)
@@ -23,49 +52,23 @@ int _print_rev(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
-			{
-				int c = va_arg(args, int);
 
-				_putchar(c);
-				count++;
-			}
-			else if (*format == 's')
+			switch (*format)
 			{
-				char *s = va_arg(args, char*);
-
-				for (i = len - 1; i >= 0; i--)
-				{
-					_putchar(s[i]);
-					count++;
-				}
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-			}
-			else if (*format == 'r')
-			{
-				char *s = va_arg(args, char*);
-				
-				for (i = len - 1; i >= 0; i--)
-				{
-					char *s = va_arg(args, char*);
-
-					_putchar(s[i]);
-					count++;
-				}
+				case 's':
+					print_string(args);
+					break;
+				case 'r':
+					rev_string(args);
+					break;
 			}
 		}
 		else
 		{
-			_putchar(*format);
-			count++;
+			fputc(*format, stdout);
 		}
-
 		format++;
 	}
 	va_end(args);
-	return (count);
+	return (0);
 }

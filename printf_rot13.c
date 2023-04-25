@@ -8,7 +8,7 @@
  */
 char rot13_char(char c)
 {
-	if (isalpha)
+	if (isalpha(c))
 	{
 		char base = isupper(c) ? 'A' : 'a';
 
