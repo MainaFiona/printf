@@ -1,73 +1,64 @@
 #include "main.h"
+#include <stdarg.h>
+#include <string.h>
 
 /**
- * print_rot13 - a function that prints rot13string
- * @args: list of arguments
- *
- * Return: count
+ * rot13_char - function that takes a string as input and returns rot13
+ * @c: character to itarate
+ * Return: (c)
+ */
+char rot13_char(char c)
+{
+	if(isAlpha)
+	{
+		char base = isUpper(c) ? 'A' : 'a';
+		
+		return (c - base + 13) % 26 + base;
+	}
+	else
+	{
+		return (c);
+	}
+}
+/**
+ * rot13 - a function that loops through the str
+ * @*str: string to loop through
  */
 
-int _printf(const char format, ...)
+void rot13(char *str)
+{
+	while (*str)
+	{
+		*str = rot13_char(*str);
+		str++;
+	}
+}
+/**
+ * printf - handles the conversion specifier for R
+ * @format: format string
+ *
+ * Return: rot13Rn
+ */
+int _printf(const char *format, ...)
 {
 	va_list args;
+
 	va_start(args, format);
-	int count = 0;
 
 	while (*format)
 	{
-		if (*format == '%')
+		if (*format == '%' && (format + 1) == 'R')
 		{
-			format++;
-			if(*format == 'c')
-			{
-				int c = va_arg(args, int);
-				_putchar(c);
-				count++;
-			}
-			else if (*format == 's')
-			{
-				char *s = va_arg(args, char *);
-
-				while (*s)
-				{
-					_putchar(*s);
-					s++;
-					count++;
-				}
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-			}
-			else if (*format == 'R')
-			{
-				char *s = va_arg(args, char *);
-				while (*s)
-				{
-					if (*s >= 'a' && *s <= 'z')
-					{
-						_putchar((*s - 'a' + 15) % 26 + 'a');
-					}
-					else if (*s >= 'A' && *s <= 'Z')
-					{
-						_putchar((*s - 'A' + 13) % 26 + 'A');
-					}
-					else 
-					{
-						_putchar(*s);
-					}
-					s++;
-					count++;
-				}
-			}
-			else
-			{
-				_putchar(*format);
-				count++;
-			}
+			char *str = va_arg(args, char *);
+			rot13(str);
+			printf("%s", str);
+			format += 2;
 		}
-		va_end(args);
-		return (count);
+		else
+		{
+			_putchar(*format);
+			format++;
+		}
 	}
+	va_end(args);
 }
