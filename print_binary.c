@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print_an_unsigned_int - function that prints unsigned int
+ * print_a_binary - function that converts  unsigned int to binary
  * @ap: list of variadic
  * Return: Always 0.
  */
