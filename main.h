@@ -33,7 +33,7 @@ int printf_handlers(va_list ap);
 int printf_flag(va_list ap);
 int printf_0_flag(va_list);
 int printf_precision(va_list ap);
-int printf_rev(va_list ap);
+int printf_rev(va_list parms);
 int print_width(va_list ap);
 int printf_rot13(va_list ap);
 
