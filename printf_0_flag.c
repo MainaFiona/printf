@@ -25,9 +25,9 @@ int _printf_0_flag(const char *format, ...)
 			}
 			else if (*format == 'd')
 			{
-				void *d = va_arg(args, void*);
+				int *d = va_arg(args, int*);
 
-				printf("%d", d);
+				printf("%d", *d);
 			}
 			else if (*format == 's')
 			{

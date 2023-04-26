@@ -39,18 +39,18 @@ int _printf_flag(const char *format, ...)
 				char *s = va_arg(args, char*);
 
 				if (lft_justify)
-					printf("%.*s", precision, '\0');
+					printf("%.*s", precision, " ");
 				else
-					printf("%-.*s", precision, precision, s);
+					printf("%-.*s", precision, s);
 			}
 			else if (c == 'p')
 			{
-				void *p = va_arg(args, void*);
+				int *p = va_arg(args, int*);
 
 				if (lft_justify)
-					printf("%.*p", precision, NULL);
+					printf("%p", NULL);
 				else
-					printf("%-*.*p", precision, precision, p);
+					printf("%-*.*s", *p, precision, (char *)p);
 			}
 			else
 			{

@@ -31,20 +31,18 @@ int _printf_precision(const char *fmt, ...)
 			if (c == 'c')
 			{
 				char *s = va_arg(args, char*);
-
-				printf("%.*s", precision, s);
+				_putchar(*s);
 			}
 			else if (c == 'p')
 			{
-				void *p = va_arg(args, void*);
-
-				printf("%.*p", precision, p);
+				char *p = va_arg(args, char*);
+				_putchar(*p);
 			}
 			else if (c == 'n')
 			{
-				int *n = va_arg(args, int*);
+				char *n = va_arg(args, char*);
+				_putchar(*n);
 
-				printf("%.n", precision, n);
 			}
 			else
 			{
