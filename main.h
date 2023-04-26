@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
 
 /**
  * struct op - Struct op
@@ -27,12 +29,14 @@ int print_a_dec(va_list ap);
 int print_a_binary(va_list ap);
 int print_an_unsigned_int(va_list ap);
 int print_an_octa(va_list ap);
-int _print_handlers(const char *format, ...);
-int _printf_flag(const char *format, ...);
-int _printf_0_flag(const char *format, ...);
-int _printf_precision(const char *fmt, ...);
-int _printf_rev(const char *format, ...);
-int _print_width(const char *format, ...);
-int _printf_rot13(const char *format, ...);
+int printf_handlers(const char *format, ...);
+int printf_flag(const char *format, ...);
+int printf_0_flag(const char *format, ...);
+int printf_precision(const char *fmt, ...);
+int printf_rev(const char *format, ...);
+int print_width(const char *format, ...);
+int printf_rot13(const char *format, ...);
+
+#endif /* MAIN_H */
 
 #endif /* MAIN_H */
