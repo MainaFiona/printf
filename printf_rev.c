@@ -41,19 +41,19 @@ void rev_string(va_list args)
  * Return: count
  */
 
-int _print_rev(const char *format, ...)
+int print_rev(va_list *ap)
 {
 	va_list args;
 
-	va_start(args, format);
+	va_start(args, ap);
 
-	while (*format)
+	while (*ap)
 	{
-		if (*format == '%')
+		if (*ap == '%')
 		{
-			format++;
+			ap++;
 
-			switch (*format)
+			switch (*ap)
 			{
 				case 's':
 					print_string(args);
@@ -65,9 +65,9 @@ int _print_rev(const char *format, ...)
 		}
 		else
 		{
-			fputc(*format, stdout);
+			fputc(*ap, stdout);
 		}
-		format++;
+		ap++;
 	}
 	va_end(args);
 	return (0);

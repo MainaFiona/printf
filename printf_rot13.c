@@ -1,65 +1,41 @@
 #include "main.h"
 #include <string.h>
-#include <ctype.h>
+#include <stdarg.h>
+#include <stdlib.h>
 /**
- * rot13_char - function that takes a string as input and returns rot13
- * @c: character to itarate
- * Return: (c)
- */
-char rot13_char(char c)
-{
-	if (isalpha(c))
-	{
-		char base = isupper(c) ? 'A' : 'a';
-
-		return ((c - base + 13) % 26 + base);
-	}
-	else
-	{
-		return (c);
-	}
-}
-/**
- * rot13 - a function that loops through the str
- * @str: string to loop through
- */
-
-void rot13(char *str)
-{
-	while (*str)
-	{
-		*str = rot13_char(*str);
-		str++;
-	}
-}
-/**
- * _printf_rot13 - handles the conversion specifier for R
- * @format: format string
+ * printf_rot13 - handles the conversion specifier for R
+ * @ap: parameters for string
  *
  * Return: rot13R
  */
-int _printf_rot13(const char *format, ...)
+int print_rot13(va_list *ap)
 {
-	va_list args;
+	int lgth = 0, x = 0;
+       	int l;
 
-	va_start(args, format);
+	char dep[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoprstuvwxyz";
+	char ariv[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *val = va_arg(*ap, char *);
 
-	while (*format)
+	while (val[lgth])
+		lgth++;
+	if (val == NULL)
 	{
-		if (*format == '%' && *(format + 1) == 'R')
-		{
-			char *str = va_arg(args, char *);
+		val = "(ahyy)";
+	}
+	for (x = 0; val[x] != '\0' ; x++)
+	{
+		l = 0;
 
-			rot13(str);
-			printf("%s", str);
-			format += 2;
-		}
-		else
+		while (val[l])
 		{
-			_putchar(*format);
-			format++;
+			if (val[x] == dep[l])
+			{
+				_putchar(ariv[l]);
+				break;
+			}
+			l++;
 		}
 	}
-	va_end(args);
-	return (0);
+	return (lgth);
 }
