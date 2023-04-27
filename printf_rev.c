@@ -22,13 +22,13 @@ int print_string(char *t, int len)
  * Return: count
  */
 
-int print_rev(va_list *parms)
+int printf_rev(va_list args)
 {
 	int len = 0; 
-	char *stlen = va_arg(*parms, char *);
+	char *stlen = va_arg(args, char *);
 
 	if(stlen == NULL)
-		stlen = "(llun)";
+		stlen = "(null)";
 	return (print_string(stlen, len));
 
 }

@@ -23,9 +23,9 @@ int (*get_op_func(const char *s))(va_list)
 	};
 	unsigned int i = 0;
 
-	while (ops[i].c)
+	while (ops[i].op != NULL)
 	{
-		if (*s == *(ops[i].c))
+		if (*s == *(ops[i].op))
 		{
 			return (ops[i].f);
 		}
