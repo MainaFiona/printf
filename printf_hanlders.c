@@ -7,13 +7,11 @@
  *
  * Return: count
  */
-int _printf_handlers(const char *format, ...)
+int printf_handlers(va_list args)
 {
 	int count = 0;
 
-	va_list args;
-
-	va_start(args, format);
+	const char *format = va_arg(args, char *);
 
 	while (*format)
 	{

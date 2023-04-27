@@ -29,12 +29,12 @@ int print_a_dec(va_list ap);
 int print_a_binary(va_list ap);
 int print_an_unsigned_int(va_list ap);
 int print_an_octa(va_list ap);
-int printf_handlers(va_list ap);
-int printf_flag(va_list ap);
-int printf_0_flag(va_list);
-int printf_precision(va_list ap);
+int printf_handlers(va_list args);
+int printf_flag(va_list args);
+int printf_0_flag(va_list args);
+int printf_precision(va_list args);
 int printf_rev(va_list args);
-int printf_width(va_list ap);
+int printf_width(va_list args);
 int printf_rot13(va_list args);
 
 #endif /* MAIN_H */
