@@ -8,14 +8,14 @@
  *
  * Return: rot13R
  */
-int print_rot13(va_list *ap)
+int printf_rot13(va_list args)
 {
 	int lgth = 0, x = 0;
        	int l;
 
 	char dep[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoprstuvwxyz";
 	char ariv[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char *val = va_arg(*ap, char *);
+	char *val = va_arg(args, char *);
 
 	while (val[lgth])
 		lgth++;
@@ -23,10 +23,9 @@ int print_rot13(va_list *ap)
 	{
 		val = "(ahyy)";
 	}
-	for (x = 0; val[x] != '\0' ; x++)
+	while (val[x] != '\0')
 	{
 		l = 0;
-
 		while (val[l])
 		{
 			if (val[x] == dep[l])
@@ -36,6 +35,7 @@ int print_rot13(va_list *ap)
 			}
 			l++;
 		}
+		x++;
 	}
 	return (lgth);
 }
