@@ -1,74 +1,34 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
-
 /**
  * print_string - sets the string to be printed
- * @args: arguments
+ * @len: length of string to calculate
  * Return: 0
  */
-void print_string(va_list args)
+int print_string(char *t, int len)
 {
-	char *str = va_arg(args, char*);
-
-	fputs(str, stdout);
-}
-/**
- * rev_string - function to reverse a string
- * @str: string to be reversed
- * @args:  arguments to be specified
- * Return: str
- */
-void rev_string(va_list args)
-{
-	char *str = va_arg(args, char*);
-
-	int len = strlen(str);
-
-	int i;
-
-	for (i = len - 1; i >= 0; i++)
+	if (t[0] != '\0')
 	{
-		fputc(str[i], stdout);
+		len = print_string(t + 1, len + 1);
+		_putchar(t[0]);
 	}
+	return (len);
 }
 
-/**
- * _printf_rev - handles printof a function that
+/**`
+ * _print_rev - handles printof a function that
  * prints reverse string
  * @format: formated string to look for
  *
  * Return: count
  */
 
-int _printf_rev(va_list args)
+int printf_rev(va_list args)
 {
-	va_list args;
+	int len = 0; 
+	char *stlen = va_arg(args, char *);
 
-	va_start(args, format);
+	if(stlen == NULL)
+		stlen = "(null)";
+	return (print_string(stlen, len));
 
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-
-			switch (*format)
-			{
-				case 's':
-					print_string(args);
-					break;
-				case 'r':
-					rev_string(args);
-					break;
-			}
-		}
-		else
-		{
-			fputc(*format, stdout);
-		}
-		format++;
-	}
-	va_end(args);
-	return (0);
 }

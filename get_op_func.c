@@ -17,15 +17,16 @@ int (*get_op_func(const char *s))(va_list)
 		{"d", print_an_int},
 		{"b", print_a_binary},
 		{"u", print_an_unsigned_int},
-		{"o", print_an_octa},
-		{"R", _printf_rev},
+		{"x", printf_handlers},
+		{"r", printf_rev},
+		{"R", printf_rot13},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
 
-	while (ops[i].c)
+	while (ops[i].op != NULL)
 	{
-		if (*s == *(ops[i].c))
+		if (*s == *(ops[i].op))
 		{
 			return (ops[i].f);
 		}

@@ -8,11 +8,9 @@
  * Return: format flag
  */
 
-int _printf_0_flag(const char *format, ...)
+int printf_0_flag(va_list args)
 {
-	va_list args;
-
-	va_start(args, format);
+	const char *format = va_arg(args, char *);
 
 	while (*format)
 	{

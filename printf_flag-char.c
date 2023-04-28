@@ -2,69 +2,50 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * _printf_flag - function that handles specifier
- * @format: formatted string to print arguments
+ * printf_flag - function that handles specifier
+ * @args: formatted string to print arguments
  *
  * Return: count
  */
-int _printf_flag(const char *format, ...)
+int printf_flag(va_list args)
 {
-	char c;
+	int i = 0, lgt = 0;
+	char *s = va_arg(args, char *);
+	unsigned int h;
+	char nil[] = "(null)";
 
-	va_list args;
-
-	va_start(args, format);
-
-	while ((c = *format++))
+	if (!s)
 	{
-		if (c == '%')
+		while (nil[i])
 		{
-			int precision = 0, lft_justify = 0;
+			_putchar(nil[i]);
+			i++;
+		}
+		return (i);
+	}
 
-			c = *(format++);
-
-			if (c == '-')
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] < 32 || s[i] >= 127)
+		{
+			_putchar(92);
+			_putchar(120);
+			lgt = lgt + 2;
+			h = s[i];
+			if (h < 16)
 			{
-				lft_justify = 1;
-
-				c = *(format++);
-			}
-			if (c >= '0' && c <= '9')
-			{
-				precision = precision * 10 + (c - '0');
-				c = *(format++);
-			}
-			if (c == 's')
-			{
-				char *s = va_arg(args, char*);
-
-				if (lft_justify)
-					printf("%.*s", precision, " ");
-				else
-					printf("%-.*s", precision, s);
-			}
-			else if (c == 'p')
-			{
-				int *p = va_arg(args, int*);
-
-				if (lft_justify)
-					printf("%p", NULL);
-				else
-					printf("%-*.*s", *p, precision, (char *)p);
-			}
-			else
-			{
-				_putchar('%');
-
-				if (lft_justify)
-					_putchar('-');
-				if (c)
-					_putchar(c);
+				_putchar(48);
+				lgt++;
 			}
 		}
 		else
-			_putchar(c);
+		{
+			_putchar(s[i]);
+			lgt++;
+		}
+		i++;
 	}
-	va_end(args);
-	return (c);
+
+	return (lgt);
 }

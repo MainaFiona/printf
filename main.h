@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
 
 /**
  * struct op - Struct op
@@ -12,7 +14,7 @@
  */
 typedef struct op
 {
-	char *c;
+	char *op;
 	int (*f)(va_list);
 } op_t;
 
@@ -27,12 +29,12 @@ int print_a_dec(va_list ap);
 int print_a_binary(va_list ap);
 int print_an_unsigned_int(va_list ap);
 int print_an_octa(va_list ap);
-int _printf_rev(va_list args);
-int _print_handlers(const char *format, ...);
-int _printf_flag(const char *format, ...);
-int _printf_0_flag(const char *format, ...);
-int _printf_precision(const char *fmt, ...);
-int _print_width(const char *format, ...);
-int _printf_rot13(const char *format, ...);
+int printf_handlers(va_list args);
+int printf_flag(va_list args);
+int printf_0_flag(va_list args);
+int printf_precision(va_list args);
+int printf_rev(va_list args);
+int printf_width(va_list args);
+int printf_rot13(va_list args);
 
 #endif /* MAIN_H */

@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
  * _printf - function that produces output according to a format
  * @format: takes format specifier
@@ -26,7 +24,12 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's'
 && format[i + 1] != 'i' && format[i + 1] != 'd' && format[i + 1] != 'b'
+<<<<<<< HEAD
 && format [i + 1] != 'u' && format[i + 1] != 'o' && format[i + 1] != 'r')
+=======
+&& format [i + 1] != 'u' && format[i + 1] != 'o'
+&& format[i + 1] != 'r' && format[i +1] != 'R')
+>>>>>>> 307cf8de44897efdbe47d0f00e4ca6334cecd73e
 				{
 					j = j + _putchar(format[i]);
 					j = j + _putchar(format[i + 1]);
