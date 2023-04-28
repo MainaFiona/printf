@@ -1,41 +1,56 @@
 #include "main.h"
-#include <string.h>
-#include <stdarg.h>
-#include <stdlib.h>
+#include <ctype.h>
+
 /**
- * printf_rot13 - handles the conversion specifier for R
- * @ap: parameters for string
+ * rot13 - Applies the ROT13 cipher to a character.
+ * @c: The character to be encoded.
  *
- * Return: rot13R
+ * Return: The ROT13-encoded character.
+ */
+char rot13(char c)
+{
+	if (isalpha(c))
+	{
+		if ((c >= 'a' && c <= 'm') || (c >= 'A' && c <= 'M'))
+			c += 13;
+		else
+			c -= 13;
+	}
+	return (c);
+}
+
+/**
+ * printf_rot13 - Prints a ROT13-encoded string.
+ * @args: The argument list containing the string to be printed.
+ *
+ * Return: The total number of characters printed.
  */
 int printf_rot13(va_list args)
 {
-	int lgth = 0, x = 0;
-       	int l;
+	int count = 0;
+	const char *str = va_arg(args, const char *);
 
-	char dep[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoprstuvwxyz";
-	char ariv[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char *val = va_arg(args, char *);
-
-	while (val[lgth])
-		lgth++;
-	if (val == NULL)
+	while (*str)
 	{
-		val = "(ahyy)";
-	}
-	while (val[x] != '\0')
-	{
-		l = 0;
-		while (val[l])
+		if (*str == '%' && *(str + 1) == 'R')
 		{
-			if (val[x] == dep[l])
+			str += 2;
+
+			while (*str && *str != '%')
 			{
-				_putchar(ariv[l]);
-				break;
+				_putchar(rot13(*str));
+				count++;
+				str++;
 			}
-			l++;
 		}
-		x++;
+		else
+		{
+			_putchar(*str);
+			count++;
+		}
+		str++;
 	}
-	return (lgth);
+
+	return (count);
 }
+
