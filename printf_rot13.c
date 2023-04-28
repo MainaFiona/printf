@@ -10,6 +10,7 @@ char rot13_char(char c)
 	if (isAlpha)
 	{
 		char base = isUpper(c) ? 'A' : 'a';
+
 		return ((c - base + 13) % 26 + base);
 	}
 	else
