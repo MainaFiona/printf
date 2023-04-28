@@ -3,7 +3,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 /**
  * struct op - Struct op
  *

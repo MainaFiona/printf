@@ -1,63 +1,58 @@
 #include "main.h"
-#include <string.h>
 /**
- * rot13_char - function that takes a string as input and returns rot13
- * @c: character to itarate
- * Return: (c)
- */
-char rot13_char(char c)
-{
-	if (isAlpha)
-	{
-		char base = isUpper(c) ? 'A' : 'a';
-
-		return ((c - base + 13) % 26 + base);
-	}
-	else
-	{
-		return (c);
-	}
-}
-/**
- * rot13 - a function that loops through the str
- * @str: string to loop through
- */
-
-void rot13(char *str)
-{
-	while (*str)
-	{
-		*str = rot13_char(*str);
-		str++;
-	}
-}
-/**
- * _printf_rot13 - handles the conversion specifier for R
- * @format: format string
+ * rot13 - Applies the ROT13 cipher to a character.
+ * @c: The character to be encoded.
  *
- * Return: rot13R
+ * Return: The ROT13-encoded character.
  */
-int _printf_rot13(const char *format, ...)
+char rot13(char c)
 {
-	va_list args;
-
-	va_start(args, format);
-
-	while (*format)
+	if (isalpha(c))
 	{
-		if (*format == '%' && (format + 1) == 'R')
-		{
-			char *str = va_arg(args, char *);
+		if ((c >= 'a' && c <= 'm') || (c >= 'A' && c <= 'M'))
+			c += 13;
+		else
+			c -= 13;
+	}
+	return c;
+}
 
-			rot13(str);
-			printf("%s", str);
-			format += 2;
+/**
+ * print_rot13 - Prints a string with ROT13-encoded characters.
+ * @str: The input string to be printed.
+ *
+ * Return: The total number of characters printed.
+ */
+int _printf_rot13(const char *str, ...)
+{
+	int count = 0;
+
+	for (; *str; str++)
+	{
+		if (*str == '%')
+		{
+			if (*(str + 1) == 'R')
+			{
+				str += 2;
+				for (; *str && *str != '%'; str++)
+				{
+					putchar(rot13(*str));
+					count++;
+				}
+				str--;
+			}
+			else
+			{
+				putchar(*str);
+				count++;
+			}
 		}
 		else
 		{
-			_putchar(*format);
-			format++;
+			putchar(*str);
+			count++;
 		}
 	}
-	va_end(args);
+	return count;
 }
+
