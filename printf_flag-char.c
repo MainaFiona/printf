@@ -38,7 +38,6 @@ int printf_flag(va_list args)
 				_putchar(48);
 				lgt++;
 			}
-			lgt = lgt + print_hex(h, 1);
 		}
 		else
 		{
