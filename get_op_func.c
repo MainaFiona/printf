@@ -18,7 +18,7 @@ int (*get_op_func(const char *s))(va_list)
 		{"b", print_a_binary},
 		{"u", print_an_unsigned_int},
 		{"o", print_an_octa},
-		{"w", printf_0_flag},
+		{"w", printf_flag},
 		{"x", printf_handlers},
 		{"r", printf_rev},
 		{"R", printf_rot13},
