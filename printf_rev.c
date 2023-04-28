@@ -34,14 +34,14 @@ void rev_string(va_list args)
 }
 
 /**
- * _print_rev - handles printof a function that
+ * _printf_rev - handles printof a function that
  * prints reverse string
  * @format: formated string to look for
  *
  * Return: count
  */
 
-int _print_rev(const char *format, ...)
+int _printf_rev(va_list args)
 {
 	va_list args;
 
