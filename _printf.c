@@ -24,17 +24,10 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] != 'c' && format[i + 1] != '%' && format[i + 1] != 's'
 && format[i + 1] != 'i' && format[i + 1] != 'd' && format[i + 1] != 'b'
-<<<<<<< HEAD
 && format[i + 1] != 'u' && format[i + 1] != 'x'
 && format[i + 1] != 'w' && format[i + 1] != 'y'
-=======
-<<<<<<< HEAD
-&& format [i + 1] != 'u' && format[i + 1] != 'o' && format[i + 1] != 'r')
-=======
-&& format [i + 1] != 'u' && format[i + 1] != 'o'
->>>>>>> 7123820b0867cf69875b9eb46e8b3156ecc2717a
+&& format [i + 1] != 'u' && format[i + 1] != 'o' && format[i + 1] != 'r'
 && format[i + 1] != 'r' && format[i +1] != 'R')
->>>>>>> 307cf8de44897efdbe47d0f00e4ca6334cecd73e
 				{
 					j = j + _putchar(format[i]);
 					j = j + _putchar(format[i + 1]);
