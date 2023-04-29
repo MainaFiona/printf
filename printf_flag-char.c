@@ -7,62 +7,54 @@
  */
 int printf_flag(va_list args)
 {
-	const char *format = va_arg(args, const char *);
+	char currentChar;
 
-	while (*format != '\0')
+	int leftAlign = 0;
+
+	int value = va_arg(args, int);
+
+	int formatSpecifier = va_arg(args, int);
+
+	while ((currentChar = va_arg(args, int)) != '\0')
 	{
-		if (*format == '%')
+
+		if (currentChar == '%')
 		{
-			format++;
-			int leftAlign = 0;
-			if (*format == '-')
+
+			if (va_arg(args, int) == '-')
 			{
 				leftAlign = 1;
-				format++;
 			}
-
-			if (*format == 'd')
+			if (formatSpecifier == 'd')
 			{
-				int value = va_arg(args, int);
-
 				if (leftAlign)
 				{
-					_putchar('-');
-					_putchar('0' + value);
+					printf("%-d", value);
 				}
 				else
 				{
-					_putchar('0' + value);
+					printf("%d", value);
 				}
 			}
-			else if (*format == 's')
+			else if (formatSpecifier == 's')
 			{
 				char *str = va_arg(args, char *);
 
 				if (leftAlign)
 				{
-					while (*str != '\0')
-					{
-						_putchar(*str);
-						str++;
-					}
+					printf("%s", str);
 				}
 				else
 				{
-					while (*str != '\0')
-					{
-						_putchar(*str);
-						str++;
-					}
+					printf("%s", str);
 				}
 			}
 		}
 		else
 		{
-			_putchar(*format);
+			_putchar(currentChar);
 		}
-
-		format++;
 	}
 
+	return (leftAlign);
 }
