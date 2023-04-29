@@ -36,5 +36,8 @@ int printf_precision(va_list args);
 int printf_rev(va_list args);
 int printf_width(va_list args);
 int printf_rot13(va_list args);
+int handle_write_char(char c, char buff[], int flags, int width, int prec, int size);
+int write_number(int is_negative, int ind, char buff[], int flags, int width, int prec, int size);
+int write_pointer(char buff[], int ind, int length, int width, int flags, char padd, char extra_c, int padd_start);
 
 #endif /* MAIN_H */
