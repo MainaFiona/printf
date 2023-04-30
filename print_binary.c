@@ -1,32 +1,30 @@
 #include <stdarg.h>
-#include "main.h"
-
+#include <stdio.h>
 /**
- * print_a_binary - writes an unsigned int in binary format
- * @ap: The va_list containing the argument
+ * print_binary - writes in binary
+ * @args: The va_list containing the arguments
  *
- * Return: The number of characters printed
+ * Return: On success, the length.
  */
-int print_a_binary(va_list *ap)
+int print_binary(va_list args)
 {
-    unsigned int val = va_arg(*ap, unsigned int);
+    unsigned int value = va_arg(args, unsigned int);
+    int count = 0;
+    int binary[32];
 
-    int len = 0;
-
-    if (val == 0)
-    {
-        _putchar('0');
-        return 1;
+    for (int i = 0; i < 32; i++) {
+        binary[i] = value % 2;
+        value /= 2;
     }
 
-    while (val)
-    {
-        len++;
-        _putchar((val & 1) + '0');
-        val >>= 1;
+    int start_printing = 0;
+    for (int i = 31; i >= 0; i--) {
+        if (binary[i] || start_printing) {
+            putchar('0' + binary[i]);
+            count++;
+            start_printing = 1;
+        }
     }
 
-    return (len);
+    return count;
 }
-
-

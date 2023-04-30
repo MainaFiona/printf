@@ -6,18 +6,6 @@
 #include <limits.h>
 #include <stdlib.h>
 
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-#define S_LONG 2
-#define S_SHORT 1
-
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
 /**
  * struct op - Struct op
  *
@@ -38,7 +26,7 @@ int print_a_str(va_list ap);
 int print_a_pct(va_list ap);
 int print_an_int(va_list ap);
 int print_a_dec(va_list ap);
-int print_a_binary(va_list *);
+int print_a_binary(va_list ap);
 int print_binary(va_list *params);
 int print_an_unsigned_int(va_list ap);
 int print_an_octa(va_list ap);
