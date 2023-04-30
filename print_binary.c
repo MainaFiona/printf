@@ -1,38 +1,32 @@
+#include <stdarg.h>
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
- * print_a_binary - function that converts  unsigned int to binary
- * @ap: list of variadic
- * Return: Always 0.
+ * print_a_binary - writes an unsigned int in binary format
+ * @ap: The va_list containing the argument
+ *
+ * Return: The number of characters printed
  */
-int print_a_binary(va_list ap)
+int print_a_binary(va_list *ap)
 {
-	int len = 1;
-	int count = 0;
-	unsigned int j;
-	int i;
+    unsigned int val = va_arg(*ap, unsigned int);
 
-	i = va_arg(ap, unsigned int);
+    int len = 0;
 
-	if (i < 0)
-	{
-		count += _putchar('-');
-		j = i * -1;
-	}
-	else
-	{
-		j = i;
-	}
-	while (j / len > 0)
-	len *= 2;
+    if (val == 0)
+    {
+        _putchar('0');
+        return 1;
+    }
 
-	while (len != 0)
-	{
-		count += _putchar(j / len + '0');
-		j %= len;
-		len /= 2;
-	}
-	return (count);
+    while (val)
+    {
+        len++;
+        _putchar((val & 1) + '0');
+        val >>= 1;
+    }
+
+    return (len);
 }
+
+

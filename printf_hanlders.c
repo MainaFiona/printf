@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * print_handlers - function that handles conversion specifiers
+ * printf_handlers - function that handles conversion specifiers
  * @args: string to print formatted args
  *
  * Return: count
@@ -22,6 +22,7 @@ int printf_handlers(va_list args)
 					*format == 'u' || *format == 'o' || *format == 'x' || *format == 'X')
 			{
 				long arg = va_arg(args, long);
+
 				count += printf("%ld", arg);
 			}
 			else
